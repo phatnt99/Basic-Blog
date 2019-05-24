@@ -1,0 +1,22 @@
+# Bảo vệ file .htaccess
+<Files .htaccess>
+Order Allow,Deny
+Deny from all
+</Files>
+
+ErrorDocument 404 http://localhost:8080/basiclearn/Newspaper/404.php
+ 
+# Rewrite url
+RewriteEngine on
+# Url bài viết
+RewriteRule ^([a-zA-Z0-9_-]+)-([0-9]+).html$ index.php?sp=$1&id=$2
+RewriteRule ^([a-zA-Z0-9_-]+)-([0-9]+).html/$ index.php?sp=$1&id=$2
+# Url chuyên mục
+RewriteRule ^category/([a-zA-Z0-9_-]+)$ index.php?sc=$1
+RewriteRule ^category/([a-zA-Z0-9_-]+)/$ index.php?sc=$1
+# Url phân trang chuyên mục
+RewriteRule ^category/([a-zA-Z0-9_-]+)/([0-9]+)$ index.php?sc=$1&p=$2
+RewriteRule ^category/([a-zA-Z0-9_-]+)/([0-9]+)/$ index.php?sc=$1&p=$2
+# Url phân trang bài viết mới nhất
+RewriteRule ^([0-9]+)$ index.php?p=$1
+RewriteRule ^([0-9]+)/$ index.php?p=$1
