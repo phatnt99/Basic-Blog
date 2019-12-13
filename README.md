@@ -1,2 +1,2 @@
-# Basic-CMS-Newspaper
-My basic CMS using PHP
+# Basic-Blog
+My basic Blog using pure PHP.
